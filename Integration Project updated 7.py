@@ -5,15 +5,16 @@ def main():
     print("Welcome to the basic estimating program for Spalding Carpet Cleaners!")
     print("Cleaners measure areas of room at a time, then multiply that by a price seen fit for labor/size of job.")
     carpetChoice = input("Would user like to measure carpet?(yes or no):")
-    if carpetChoice=='y'or'ye'or'yes':
+    yes=['y','ye','yes','yess','yyes','yees']
+    if carpetChoice in yes:
         initialCarpet = float(input("How many square feet of carpet would user like cleaned?(Whole number/decimal):"))
         priceOfCarpet = carpetEstimate(initialCarpet)
         tileChoice = input("Are there also areas of tile and grout?(yes or no):")
-        if tileChoice =='y'or'ye'or'yes':
+        if tileChoice in yes:
             initialTile = float(input("How many square feet of tile would user like cleaned?(Whole number/decimal):"))
             priceOfTile = tileEstimate(initialTile)
             upholsteryChoice = input("Would user like to estimate upholstery as well?(yes or no):")
-            if upholsteryChoice =='y'or'ye'or'yes':
+            if upholsteryChoice in yes:
                 upholsteryEstimate()
                 totalEstimate = (priceOfCarpet + priceOfTile + totalUpholsteryPrice)
                 print("Your total estimate price for carpet, tile, and upholstery is:", "$" +
@@ -23,19 +24,19 @@ def main():
                       "dollars.")
         else:
             upholsteryChoice = input("Would user like to measure upholstery?(yes or no):")
-            if upholsteryChoice =='y'or'ye'or'yes':
+            if upholsteryChoice in yes:
                 upholsteryEstimate()
                 print("Your total estimate for carpet and upholstery is:",
                       "$" + format(totalUpholsteryPrice + priceOfCarpet, ".2f"), "dollars.")
             else:
                 print("Your total estimate price is:", "$" + format(priceOfCarpet, ".2f"), "dollars.")
-    elif carpetChoice !='y'or'ye'or'yes':
+    elif carpetChoice !='yes':
         tileChoice = input("Would user like to measure tile and grout?(yes or no):")
-        if tileChoice =='y'or'ye'or'yes':
+        if tileChoice in yes:
             initialTile = float(input("How many square feet of tile would user like cleaned?(Whole number/integer):"))
             priceOfTile = tileEstimate(initialTile)
             upholsteryChoice = input("Would user also like to measure upholstery?(yes or no):")
-            if upholsteryChoice =='y'or'ye'or'yes':
+            if upholsteryChoice in yes:
                 upholsteryEstimate()
                 print("Your estimate price for tile and upholstery is:",
                       "$" + format(totalUpholsteryPrice + priceOfTile, ".2f"), "dollars.")
@@ -43,7 +44,7 @@ def main():
                 print("Your estimate price for tile is:", "$" + format(totalTilePrice, ".2f"), "dollars.")
         else:
             upholsteryChoice = input("Would user like to measure upholstery?(yes or no):")
-            if upholsteryChoice =='y'or'ye'or'yes':
+            if upholsteryChoice in yes:
                 upholsteryEstimate()
                 print("Your estimate price for upholstery is:", "$" + format(totalUpholsteryPrice, ".2f"), "dollars.")
             else:
@@ -52,7 +53,8 @@ def main():
 
 def carpetEstimate(startCarpet):
     additionalCarpet=input("Does user have additional carpet?(yes or no)")
-    if additionalCarpet=='y'or'ye'or'yes':
+    yes = ['y', 'ye', 'yes', 'yess', 'yyes', 'yees']
+    if additionalCarpet in yes:
         feetOfCarpet=1
         totalCarpet=0
         print("Please continue adding areas of rooms until necessary.")
@@ -66,7 +68,8 @@ def carpetEstimate(startCarpet):
     carpetPrice=input("Is it commercial or residential carpet?(commercial/residential):")
     commercialCarpet=float(.20)
     residentialCarpet=float(.30)
-    if carpetPrice == "residential":
+    residential=['residential','r','re','res','resid','resident','residentia','residentiall',]
+    if carpetPrice in residential:
         totalCarpetPrice = totalCarpet * residentialCarpet
     else:
         totalCarpetPrice = totalCarpet * commercialCarpet
@@ -75,7 +78,8 @@ def carpetEstimate(startCarpet):
 def tileEstimate(startTile):
     totalTile=0
     additionalTile=input("Does user have additional tile?(yes or no):")
-    if additionalTile=='y'or'ye'or'yes':
+    yes = ['y', 'ye', 'yes', 'yess', 'yyes', 'yees']
+    if additionalTile in yes:
         feetOfTile=1
         print("Please continue adding areas of rooms until necessary.")
         print("When user would like to stop adding sections of rooms, enter the value 0.")
@@ -88,7 +92,8 @@ def tileEstimate(startTile):
     tilePrice=input("Is it commercial or residential tile?(commercial/residential):")
     residentialTile=float(.65)
     commercialTile=float(.55)
-    if tilePrice == "residential":
+    residential = ['residential', 'r', 're', 'res','resid', 'resident', 'residentia', 'residientiall', ]
+    if tilePrice in residential:
         totalTilePrice = totalTile * residentialTile
     else:
         totalTilePrice = totalTile * commercialTile
@@ -106,7 +111,8 @@ def upholsteryEstimate():
     biggerThanThat = input("Do you have any couches larger than previously described?(yes or no):")
     #I know it's bad practice to use global, I just got stumped trying to use parameter instead.
     global totalUpholsteryPrice
-    if biggerThanThat == 'y'or'ye'or'yes':
+    yes = ['y', 'ye', 'yes', 'yess', 'yyes', 'yees']
+    if biggerThanThat in yes:
         biggerCushions = int(input("How many bottom cushions does it have?:"))
         totalUpholsteryPrice=(numberOfSofas*85)+(numberOfLoveSeats*65)+(numberOfRecliners*45)+(20*biggerCushions  +25)+\
                              (numberOfDiningChairs*10)+(numberOfPillows*5)+(numberOfOttoman*15)
