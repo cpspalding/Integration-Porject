@@ -1,6 +1,7 @@
 # Integration-Project
 # My name is Charles Spalding but I prefer to be called Patrick.
 # This program is a basic estimator for Spalding Carpet Cleaners, whether it's used by the customer or cleaner.
+
 def main():
     print("Welcome to the basic estimating program for Spalding Carpet Cleaners!")
     print("Cleaners measure areas of room at a time, then multiply that by a")
@@ -24,7 +25,7 @@ def main():
                 print("Your estimate for carpet is: $" + format(priceOfCarpet, ".2f") + ",")
                 print('tile is: ${0},and upholstery is: ${1}'.format(format(priceOfTile, ".2f")
                                                                      , format(totalUpholsteryPrice, ".2f")))
-                print("Coming to a combined total of", format(totalEstimate, '.2f'), "dollars.")
+                print("Coming to a combined total of", format(totalEstimate,'.2f'),"dollars.")
             else:
                 print("Your estimate for carpet is: $" + (format(priceOfCarpet, ".2f")),
                       "and tile is: $" + format(priceOfTile, '.2f'))
@@ -65,7 +66,8 @@ def main():
             else:
                 print("I apologize for being no use.")
                 print("Have a nice day!")
-
+#Function designed to figure out area of multiple sections of carpet
+#Then be multiplied by price per foot to figure out estimate
 def carpetEstimate(startCarpet):
     additionalCarpet = input("Does user have additional carpet?(yes or no)")
     yes = ['y', 'ye', 'yes', 'yess', 'yyes', 'yees']
@@ -92,7 +94,8 @@ def carpetEstimate(startCarpet):
         totalCarpetPrice = totalCarpet * commercialCarpet
     return totalCarpetPrice
 
-
+#Function designed to figure out area of multiple sections of tile
+#Then be multiplied by price per foot to figure out estimate
 def tileEstimate(startTile):
     totalTile = 0
     additionalTile = input("Does user have additional tile?(yes or no):")
@@ -119,7 +122,7 @@ def tileEstimate(startTile):
     else:
         totalTilePrice=totalTile*commercialTile
     return totalTilePrice
-
+#Function created to ask a series of questions to determine upholstery estimate
 def upholsteryEstimate():
     numberOfSofas = int(input("How many sofas would user like cleaned?"
                               "(3 bottom cushions)(Enter whole number or 0):"))
@@ -129,7 +132,7 @@ def upholsteryEstimate():
                                   "(1 bottom cushion)(Enter whole number or 0):"))
     numberOfPillows = int(input("How many pillows would user like cleaned?"
                                 "(Enter whole number or 0):"))
-    numberOfOttoman = int(input("How many ottoman would user like cleaned?"
+    numberOfOttomans = int(input("How many ottomans would user like cleaned?"
                                 "(Enter whole number or 0):"))
     numberOfDiningChairs = int(input("How many dining room chairs would user"
                                      " like cleaned?(Enter whole number or 0):"))
